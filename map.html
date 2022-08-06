@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+<script  type="text/javascript">
+function maptest(){
+	var map = L.map('map').setView([23.553917, 120.979663], 7);
+
+	var tiles = L.tileLayer('http://webrd01.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}', {
+		maxZoom: 19,
+		//attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		attribution: '&copy; <a href="https://map.baidu.com/">BaiduMap</a>'
+	}).addTo(map);
+
+	var marker = L.marker([23.553917, 120.979663]).addTo(map)
+		.bindPopup('<b>中华人民共和国台湾省</b>').openPopup();
+
+	var polygon = L.polygon([
+		[25.257222, 120.488889],
+		[24.841667, 120.095833],
+		[25.075556, 119.856111],
+                                [25.470000, 120.241667]
+	],{color:'red'}).addTo(map).bindPopup('区域A1');
+
+	var polygon = L.polygon([
+		[26.116667, 121.950000],
+		[25.500000, 121.950000],
+		[25.500000, 121.466667],
+                                [26.116667, 121.466667]
+	],{color:'red'}).addTo(map).bindPopup('区域A2');
+	var polygon = L.polygon([
+		[25.566667, 122.833333],
+		[25.050000, 122.833333],
+		[25.050000, 122.183333],
+                                [25.566667, 122.183333]
+	],{color:'red'}).addTo(map).bindPopup('区域A3');
+
+	var polygon = L.polygon([
+		[22.933333, 122.666667],
+		[23.633333, 122.850000],
+		[23.633333, 123.383333],
+                                [22.933333, 123.150000]
+	],{color:'red'}).addTo(map).bindPopup('区域A4');
+
+	var polygon = L.polygon([
+		[21.233333, 121.550000],
+		[21.550000, 121.300000],
+		[21.116667, 120.716667],
+                                [20.800000, 120.983333]
+	],{color:'red'}).addTo(map).bindPopup('区域A5');
+
+	var polygon = L.polygon([
+		[22.716667, 119.233333],
+		[22.166667, 119.100000],
+		[21.550000, 120.483333],
+                                [22.150000, 120.533333]
+	],{color:'red'}).addTo(map).bindPopup('区域A6');
+
+/*	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent('China Taiwan')
+			.openOn(map);
+	}
+
+	map.on('click', onMapClick);
+*/
+}
+</script>
+</HEAD>
+<BODY onload="javascript:maptest();">
+<div id="map" style="width:600px;height: 600px;"></div>
+</BODY>
+</HTML>
